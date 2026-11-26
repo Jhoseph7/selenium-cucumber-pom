@@ -8,7 +8,16 @@ public class DriverFactory {
 
     public static WebDriver crearDriver() {
         ChromeOptions opciones = new ChromeOptions();
-        opciones.addArguments("--start-maximized");
+
+        if ("true".equalsIgnoreCase(System.getenv("HEADLESS"))) {
+            opciones.addArguments(
+                    "--headless=new",
+                    "--window-size=1920,1080",
+                    "--no-sandbox",
+                    "--disable-dev-shm-usage");
+        } else {
+            opciones.addArguments("--start-maximized");
+        }
 
         return new ChromeDriver(opciones);
     }
