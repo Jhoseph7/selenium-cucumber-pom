@@ -1,8 +1,14 @@
 # Selenium + Cucumber + POM + Allure
 
+[![Tests](https://github.com/Jhoseph7/selenium-cucumber-pom/actions/workflows/tests.yml/badge.svg)](https://github.com/Jhoseph7/selenium-cucumber-pom/actions/workflows/tests.yml)
+
 Proyecto práctico de automatización de pruebas web con arquitectura **Page Object Model**, escenarios **BDD** en Gherkin y reportes con evidencias en **Allure**.
 
 Sitio bajo prueba: [Automation Test Store](https://automationteststore.com/), una tienda de práctica.
+
+**[Ver el último reporte de Allure](https://jhoseph7.github.io/selenium-cucumber-pom/)**
+
+![Reporte de Allure](docs/reporte-allure.png)
 
 ## Tecnologías
 
@@ -57,10 +63,18 @@ Desde la terminal:
 mvn clean test
 ```
 
+## Integración continua
+
+Cada `push` a `main` ejecuta los tests en GitHub Actions con Chrome en modo headless y publica el reporte de Allure en GitHub Pages. Las credenciales de la cuenta de prueba se guardan como secretos del repositorio.
+
 ## Reporte de Allure
+
+Reporte publicado: https://jhoseph7.github.io/selenium-cucumber-pom/
+
+Para generarlo en local:
 
 ```
 npm install -g allure
-allure generate target/allure-results
+allure generate target/allure-results -o allure-report --clean
 allure open allure-report
 ```
