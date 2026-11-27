@@ -19,6 +19,9 @@ public class PaginaLogin extends PaginaBase {
 
     public void abrirLogin() {
         abrir(URL_LOGIN);
+        if (!estaVisible(campoUsuario)) {
+            driver.navigate().refresh();
+        }
     }
 
     public void iniciarSesion(String usuario, String contrasena) {

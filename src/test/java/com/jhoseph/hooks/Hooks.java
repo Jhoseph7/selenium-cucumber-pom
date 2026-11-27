@@ -37,6 +37,11 @@ public class Hooks {
                 Allure.addAttachment("Captura al fallar", "image/png",
                         new ByteArrayInputStream(captura), "png");
                 Allure.addAttachment("URL al fallar", "text/plain", driver.getCurrentUrl());
+                Allure.addAttachment("Título al fallar", "text/plain", driver.getTitle());
+
+                String html = driver.getPageSource();
+                Allure.addAttachment("HTML al fallar (inicio)", "text/plain",
+                        html.substring(0, Math.min(html.length(), 3000)));
             }
         } finally {
             driver.quit();
