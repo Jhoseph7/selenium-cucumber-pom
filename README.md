@@ -67,6 +67,8 @@ mvn clean test
 
 Cada `push` a `main` ejecuta los tests en GitHub Actions con Chrome en modo headless y publica el reporte de Allure en GitHub Pages. Las credenciales de la cuenta de prueba se guardan como secretos del repositorio.
 
+**Nota:** el sitio bajo prueba es una web pública de terceros que, de forma intermitente, muestra una verificación anti-bot a las conexiones desde servidores de CI. Por eso la apertura del login espera y reintenta hasta 3 veces, y cada intento queda registrado como un paso en el reporte de Allure.
+
 ## Reporte de Allure
 
 Reporte publicado: https://jhoseph7.github.io/selenium-cucumber-pom/
